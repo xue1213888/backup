@@ -106,7 +106,7 @@ fi
 backup() {
     log "$BLUE" "Starting backup..."
     # 使用固定的主机名进行备份
-    restic -r "$RESTIC_REPOSITORY" backup /data
+    restic -r "$RESTIC_REPOSITORY" --host "$RESTIC_HOST" backup /data
     if [ $? -ne 0 ]; then
         log "$RED" "Error: Backup failed."
         exit 1
